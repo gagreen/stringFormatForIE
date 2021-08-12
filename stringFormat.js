@@ -9,11 +9,12 @@ if(!String.prototype.format) {
 			for(var keyword of Object.getOwnPropertyNames(obj)) {
 				formatted = formatted.replace("${"+ keyword + "}", obj[keyword]);
 			}
+			return formatted;
 		}
 		function formatForArguments(str, args){
 			var formatted = str;
 			for( var arg in args ) {
-				formatted = formatted.replace("{" + arg + "}", arguments[arg]);
+				formatted = formatted.replace("${" + arg + "}", args[arg]);
 			}
 			return formatted;
 		}
